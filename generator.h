@@ -53,7 +53,7 @@ mpz_class coprime_generator(int bit_length, mpz_class coprime_num) {
     while ((gcdenominator != 1) || (rand_bits < minimum_val)) {
         rand_bits = rr.get_z_bits(bit_length);
         mpz_gcd(gcdenominator.get_mpz_t(), rand_bits.get_mpz_t(), coprime_num.get_mpz_t());
-        cout << gcdenominator << endl;
+        //cout << gcdenominator << endl;
     }
     
 

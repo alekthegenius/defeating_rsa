@@ -8,6 +8,8 @@
 #include <gmpxx.h>
 #include "generator.h"
 #include <cstdlib>
+#include <bits/stdc++.h>
+#include <regex>
 
 using namespace std;
 
@@ -37,7 +39,7 @@ vector<mpz_class> key_generator(int bit_length=2048) {
 
   mpz_lcm(toitent_n.get_mpz_t(), toitent_p.get_mpz_t(), toitent_q.get_mpz_t());
 
-  cout << "Toitent N: " << toitent_n << endl;
+  //cout << "Toitent N: " << toitent_n << endl;
 
   mpz_class e;
 
@@ -55,14 +57,14 @@ vector<mpz_class> key_generator(int bit_length=2048) {
   mpz_invert(d.get_mpz_t(), e.get_mpz_t(), toitent_n.get_mpz_t());
 
 
-  cout << "P: " << p << endl;
-  cout << "Q: " << q << endl;
+  //cout << "P: " << p << endl;
+  //cout << "Q: " << q << endl;
 
-  cout << "N: " << n << endl;
+  //cout << "N: " << n << endl;
 
-  cout << "E: " << e << endl;
+  //cout << "E: " << e << endl;
 
-  cout << "D: " << d << endl;
+  //cout << "D: " << d << endl;
 
   return vector<mpz_class> {p, q, n, e, d};
 
@@ -95,9 +97,9 @@ mpz_class asciifi(string message) {
   string text = "";
   mpz_class decimal_text;
 
-  int divider = 1212;
+  int divider = 20000;
 
-  values.push_back(divider);
+  values.push_back(10000);
 
 
   for (int i = 0; i < message.length(); i++) {
@@ -109,7 +111,7 @@ mpz_class asciifi(string message) {
 
   }
 
-  values.push_back(divider);
+  values.push_back(10000);
 
   for (int i = 0; i < values.size(); i++) {
     text.append(to_string(int(values.at(i))));
@@ -120,14 +122,61 @@ mpz_class asciifi(string message) {
 
 }
 
-mpz_class desciifi(string message) {
-  vector<int> values = {};
-  string text = "";
-  mpz_class decimal_text;
+string desciifi(mpz_class msg) {
+  vector<string> values;
 
-  int divider = 1212;
+  string output_text = "";
+  string ascii_string;
 
-  return 0;
+  string divider = "20000";
+  string end_divider = "10000";
+
+  int ascii;
+
+  string message = msg.get_str();
+
+  regex r(divider);
+
+  regex d(end_divider);
+
+  
+  message = regex_replace(message, d, "");
+  message = regex_replace(message, r, " ");
+
+
+  string s;
+
+  stringstream ss(message);
+
+  
+
+  //for(char& c : str) {}
+
+
+
+  while (getline(ss, s, ' ')) {
+    values.push_back(s);
+  }
+
+
+  for (int i = 0; i < values.size(); i++) {
+    ascii = stoi(values[i]);
+
+    //cout << "ASCII:" << ascii << endl;
+
+    //cout << "CHAR:" << (char)ascii << endl;
+    
+
+    ascii_string = (char)ascii;
+
+
+
+    output_text.append(ascii_string);
+  }
+
+
+  return output_text;
+
 
 }
 

@@ -16,11 +16,13 @@ int main() {
     mpz_class mesg;
 
     string mesg_input;
-    //getline (cin, mesg_input);
 
-    //mesg = asciifi(mesg_input);
+    cout << "Message: ";
+    getline (cin, mesg_input);
 
-    mesg = 35;
+    mesg = asciifi(mesg_input);
+
+    //mesg = 35;
 
     cout << "Original message: " << mesg << endl;
 
@@ -30,6 +32,8 @@ int main() {
     mpz_class decrypted = decryption(encrypted, n, d);
 
     cout << "Decrypted Message: " << decrypted << endl;
+
+    cout << "Decrypted Text: " << desciifi(decrypted) << endl;
 
 
     return 0;
