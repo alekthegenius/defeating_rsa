@@ -1,0 +1,13 @@
+prefix=/home/alekv/defeating_rsa/env
+exec_prefix=/home/alekv/defeating_rsa/env
+libdir=/home/alekv/defeating_rsa/env/lib
+sharedlibdir=/home/alekv/defeating_rsa/env/lib
+includedir=/home/alekv/defeating_rsa/env/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
