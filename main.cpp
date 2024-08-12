@@ -5,7 +5,14 @@
 using namespace std;
 
 int main() {
-    vector<mpz_class> keys = key_generator(2048);
+
+    string bit_str;
+    cout << "Bit length: ";
+    getline (cin, bit_str);
+
+    int bit_length = stoi(bit_str);
+
+    vector<mpz_class> keys = key_generator(bit_length);
 
     mpz_class p = keys[0];
     mpz_class q = keys[1];
