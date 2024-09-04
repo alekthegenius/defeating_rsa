@@ -11,7 +11,6 @@
 #include <vector>
 #include <regex>
 #include <sstream>
-
 using namespace std;
 
 vector<mpz_class> key_generator(int bit_length=2048) {
