@@ -8,8 +8,9 @@
 #include <gmpxx.h>
 #include "generator.h"
 #include <cstdlib>
-#include <bits/stdc++.h>
+#include <vector>
 #include <regex>
+#include <sstream>
 
 using namespace std;
 

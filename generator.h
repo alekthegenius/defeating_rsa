@@ -5,6 +5,7 @@
 #include <random>
 #include <cmath>
 #include <ctime>
+#include <gmp.h>
 #include <gmpxx.h>
 
 using namespace std;
